@@ -3,9 +3,11 @@ package src;
 import java.util.Scanner;
 
 public class Funcionario extends Pessoa {
-	
-	public static enum Cargo { DIRETOR, SUPERVISOR, AUXILIAR};
-	
+
+	public static enum Cargo {
+		DIRETOR, SUPERVISOR, AUXILIAR
+	};
+
 	private String matricula;
 	private Cargo cargo;
 
@@ -16,12 +18,11 @@ public class Funcionario extends Pessoa {
 		System.out.println("Informe a matricula: ");
 		this.matricula = scan.nextLine();
 		System.out.println("Informe o cargo: DIRETOR | SUPERVISOR | AUXILIAR");
-		this.cargo = Cargo.valueOf(scan.nextLine());
-		
-		ControleAcesso.listaPessoas.add(this);
-		System.out.println("Criado o funcion√°rio " + super.getNome() + " " + super.getSobreNome() + ".");
-		System.out.println("Matricula: " + this.matricula);
+		this.cargo = Cargo.valueOf(scan.nextLine().toUpperCase());
 
+		ControleAcesso.listaPessoas.add(this);
+		System.out.println("Criado o funcion·rio " + super.getNome() + " " + super.getSobreNome() + ".");
+		System.out.println("Matricula: " + this.matricula);
 
 	}
 
@@ -40,7 +41,10 @@ public class Funcionario extends Pessoa {
 	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Funcionario (" + cargo + "): " + super.getNome() + " " + super.getSobreNome();
+	}
 
 }

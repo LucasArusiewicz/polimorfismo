@@ -2,7 +2,7 @@ package src;
 
 import java.util.Scanner;
 
-public class Visitante extends Pessoa{
+public class Visitante extends Pessoa {
 
 	private String numeroCracha;
 	private Funcionario funcResp;
@@ -11,16 +11,25 @@ public class Visitante extends Pessoa{
 		super();
 		Scanner scan = new Scanner(System.in);
 		System.out.println("===== Dados do Visitante =====");
-		System.out.println("Informe o numero do crachÃ¡: ");
+		System.out.println("Informe o numero do crachá: ");
 		this.numeroCracha = scan.nextLine();
-		System.out.println("Matricula do funcionÃ¡rio responsÃ¡vel");
-		int mat = scan.nextInt();
-		
+		System.out.println("Matricula do funcionário responsável");
+		funcResp();
 		ControleAcesso.listaPessoas.add(this);
 		System.out.println("Visitante cadastrado: " + super.getNome() + " " + super.getSobreNome() + ".");
-		System.out.println("CrachÃ¡: " + this.numeroCracha);
-		
-		scan.close();
+		System.out.println("Crachá: " + this.numeroCracha);
+	}
+
+	private void funcResp() {
+		Scanner scan = new Scanner(System.in);
+		int i = 0;
+		while (i == 0) {
+			int mat = scan.nextInt();
+			for (Pessoa p : ControleAcesso.listaPessoas) {
+				System.out.println("teste");
+			}
+		}
+
 	}
 
 	public String getNumeroCracha() {
@@ -38,7 +47,5 @@ public class Visitante extends Pessoa{
 	public void setFuncResp(Funcionario funcResp) {
 		this.funcResp = funcResp;
 	}
-
-
 
 }
